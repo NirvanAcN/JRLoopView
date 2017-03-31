@@ -9,8 +9,8 @@
 Pod::Spec.new do |s|
 
 s.name             = "JRLoopView"
-s.version          = "0.0.3"
-s.summary          = "轮播图"
+s.version          = "0.0.4"
+s.summary          = "JRLoopView 轮播图"
 
 s.description      = <<-DESC
     轮播图beta啊
@@ -26,6 +26,8 @@ s.source           = { :git => "https://github.com/NirvanAcN/JRLoopView.git", :t
 s.ios.deployment_target = '8.0'
 s.platform     = :ios, '8.0'
 s.source_files = 'JRLoopView/Classes/**/*'
+
+s.dependency 'SDWebImage'
 
 s.frameworks = 'UIKit'
 

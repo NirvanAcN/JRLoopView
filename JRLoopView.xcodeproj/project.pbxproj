@@ -11,6 +11,7 @@
 		2B4957E81E8E3FDC00DC36E3 /* JRLoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4957E51E8E3FDC00DC36E3 /* JRLoopView.swift */; };
 		2B4957E91E8E3FDC00DC36E3 /* JRLoopViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4957E61E8E3FDC00DC36E3 /* JRLoopViewDataSource.swift */; };
 		2B4957EA1E8E3FDC00DC36E3 /* JRLoopViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4957E71E8E3FDC00DC36E3 /* JRLoopViewDelegate.swift */; };
+		2B95EF701E8E68E6006DCD00 /* JRLoopViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B95EF6F1E8E68E6006DCD00 /* JRLoopViewConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		2B4957E51E8E3FDC00DC36E3 /* JRLoopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRLoopView.swift; sourceTree = "<group>"; };
 		2B4957E61E8E3FDC00DC36E3 /* JRLoopViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRLoopViewDataSource.swift; sourceTree = "<group>"; };
 		2B4957E71E8E3FDC00DC36E3 /* JRLoopViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRLoopViewDelegate.swift; sourceTree = "<group>"; };
+		2B95EF6F1E8E68E6006DCD00 /* JRLoopViewConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRLoopViewConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				2B4957E51E8E3FDC00DC36E3 /* JRLoopView.swift */,
 				2B4957E61E8E3FDC00DC36E3 /* JRLoopViewDataSource.swift */,
 				2B4957E71E8E3FDC00DC36E3 /* JRLoopViewDelegate.swift */,
+				2B95EF6F1E8E68E6006DCD00 /* JRLoopViewConfiguration.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B4957E81E8E3FDC00DC36E3 /* JRLoopView.swift in Sources */,
+				2B95EF701E8E68E6006DCD00 /* JRLoopViewConfiguration.swift in Sources */,
 				2B4957EA1E8E3FDC00DC36E3 /* JRLoopViewDelegate.swift in Sources */,
 				2B4957E91E8E3FDC00DC36E3 /* JRLoopViewDataSource.swift in Sources */,
 			);

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 open class JRLoopView: UIView {
     
@@ -57,12 +58,7 @@ open class JRLoopView: UIView {
     /// 添加ScrollView
     private func customScrollView() {
         scroll = UIScrollView()
-        scroll.backgroundColor = UIColor.white
-        scroll.bounces = false
-        scroll.showsVerticalScrollIndicator = false
-        scroll.showsHorizontalScrollIndicator = false
-        scroll.translatesAutoresizingMaskIntoConstraints = false
-        scroll.isPagingEnabled = true
+        JRLoopViewConfiguration.JRScrollViewConfiguration(scroll)
         scroll.delegate = self
         addSubview(scroll)
         NSLayoutConstraint.init(item: scroll, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 0).isActive = true
@@ -127,13 +123,26 @@ open class JRLoopView: UIView {
             scroll.isScrollEnabled = false
         } else if source.count == 1 {
             scroll.isScrollEnabled = false
-            cImageView.image = UIImage.init(named: source.first!)
+            set(image: cImageView, by: source.first!)
         } else {
             scroll.isScrollEnabled = true
             let indexs = prepareIndexs(by: source, centerIndex: &cIndex)
-            lImageView.image = UIImage.init(named: source[indexs.0])
-            cImageView.image = UIImage.init(named: source[indexs.1])
-            rImageView.image = UIImage.init(named: source[indexs.2])
+            set(image: lImageView, by: source[indexs.0])
+            set(image: cImageView, by: source[indexs.1])
+            set(image: rImageView, by: source[indexs.2])
+        }
+    }
+    
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - imageView: <#imageView description#>
+    ///   - value: <#value description#>
+    private func set(image imageView: UIImageView, by value: String) {
+        if let url = URL.init(string: value) {
+            imageView.sd_setImage(with: url, placeholderImage: UIImage.init(named: value))
+        } else {
+            imageView.image = UIImage.init(named: value)
         }
     }
     
