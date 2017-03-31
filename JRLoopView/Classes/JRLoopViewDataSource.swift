@@ -15,8 +15,8 @@ public protocol JRLoopViewDataSource: NSObjectProtocol {
     func loopView(contentModeFor loopView: JRLoopView) -> UIViewContentMode
 }
 
-extension JRLoopViewDataSource {
-    func loopView(contentModeFor loopView: JRLoopView) -> UIViewContentMode {
+public extension JRLoopViewDataSource {
+    public func loopView(contentModeFor loopView: JRLoopView) -> UIViewContentMode {
         return .scaleToFill
     }
 }

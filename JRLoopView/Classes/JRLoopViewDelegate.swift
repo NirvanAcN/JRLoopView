@@ -13,7 +13,7 @@ public protocol JRLoopViewDelegate: NSObjectProtocol {
 //    func loopView(contentModeFor loopView: JRLoopView) -> UIViewContentMode
 }
 
-extension JRLoopViewDelegate {
+public extension JRLoopViewDelegate {
 //    func loopView(contentModeFor loopView: JRLoopView) -> UIViewContentMode {
 //        return .scaleToFill
 //    }
