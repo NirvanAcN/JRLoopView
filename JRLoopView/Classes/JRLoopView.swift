@@ -27,12 +27,30 @@ open class JRLoopView: UIView {
     
     fileprivate var cIndex = 0
     
-    public func reloadData() {
-        setOrigins()
+    fileprivate var source: [Any] {
+        switch dataSource!.loopView(imagesSourceType: self) {
+        case .url:
+            guard let urls = dataSource?.loopView(imagesURLFor: self) else {
+                fatalError("loopView(imagesURLFor:)")
+            }
+            return urls
+            
+        case .urlString:
+            guard let urlStrings = dataSource?.loopView(imagesURLStringFor: self) else {
+                fatalError("loopView(imagesURLStringFor:)")
+            }
+            return urlStrings
+            
+        case .name:
+            guard let names = dataSource?.loopView(imagesNameFor: self) else {
+                fatalError("loopView(imagesNameFor:)")
+            }
+            return names
+        }
     }
     
-    private var source: [String]! {
-        return dataSource?.loopView(imagesNameFor: self)
+    public func reloadData() {
+        setOrigins()
     }
     
     public class func loopView(frame: CGRect) -> JRLoopView {
@@ -123,26 +141,43 @@ open class JRLoopView: UIView {
             scroll.isScrollEnabled = false
         } else if source.count == 1 {
             scroll.isScrollEnabled = false
-            set(image: cImageView, by: source.first!)
+            set(image: cImageView, by: 0)
         } else {
             scroll.isScrollEnabled = true
             let indexs = prepareIndexs(by: source, centerIndex: &cIndex)
-            set(image: lImageView, by: source[indexs.0])
-            set(image: cImageView, by: source[indexs.1])
-            set(image: rImageView, by: source[indexs.2])
+            set(image: lImageView, by: indexs.0)
+            set(image: cImageView, by: indexs.1)
+            set(image: rImageView, by: indexs.2)
         }
     }
     
-    /// <#Description#>
+    /// 设置图片
     ///
     /// - Parameters:
-    ///   - imageView: <#imageView description#>
-    ///   - value: <#value description#>
-    private func set(image imageView: UIImageView, by value: String) {
-        if let url = URL.init(string: value) {
-            imageView.sd_setImage(with: url, placeholderImage: UIImage.init(named: value))
-        } else {
-            imageView.image = UIImage.init(named: value)
+    ///   - imageView: imageView description
+    ///   - index: index description
+    private func set(image imageView: UIImageView, by index: Int) {
+        func net(url: URL) {
+            imageView.sd_setImage(with: url, placeholderImage: UIImage.init(named: "5.jpeg"))
+        }
+        
+        func local(name: String) {
+            imageView.image = UIImage.init(named: name)
+        }
+        let type = dataSource!.loopView(imagesSourceType: self)
+        switch type {
+        case .url:
+            guard let url = source[index] as? URL else { return }
+            net(url: url)
+            
+        case .urlString:
+            guard let urlString = source[index] as? String else { return }
+            guard let url = URL.init(string: urlString) else { return }
+            net(url: url)
+            
+        case .name:
+            guard let name = source[index] as? String else { return }
+            local(name: name)
         }
     }
     
