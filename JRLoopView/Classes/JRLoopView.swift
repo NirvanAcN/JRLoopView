@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class JRLoopView: UIView {
+open class JRLoopView: UIView {
     
     public weak var delegate:   JRLoopViewDelegate!
     public weak var dataSource: JRLoopViewDataSource! {
