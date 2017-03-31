@@ -13,6 +13,7 @@ s.version          = "0.0.4"
 s.summary          = "JRLoopView 轮播图"
 
 s.description      = <<-DESC
+JRLoopView 轮播图
     轮播图beta啊
         DESC
 
