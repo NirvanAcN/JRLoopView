@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		2B4957DD1E8E3FB300DC36E3 /* JRLoopView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B4957DB1E8E3FB300DC36E3 /* JRLoopView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2B4957E81E8E3FDC00DC36E3 /* JRLoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4957E51E8E3FDC00DC36E3 /* JRLoopView.swift */; };
-		2B4957E91E8E3FDC00DC36E3 /* JRLoopViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4957E61E8E3FDC00DC36E3 /* JRLoopViewDataSource.swift */; };
-		2B4957EA1E8E3FDC00DC36E3 /* JRLoopViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4957E71E8E3FDC00DC36E3 /* JRLoopViewDelegate.swift */; };
-		2B95EF701E8E68E6006DCD00 /* JRLoopViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B95EF6F1E8E68E6006DCD00 /* JRLoopViewConfiguration.swift */; };
+		2B5BBB0B1E8F9E2A007A9DA6 /* JRLoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5BBB061E8F9E2A007A9DA6 /* JRLoopView.swift */; };
+		2B5BBB0C1E8F9E2A007A9DA6 /* JRLoopViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5BBB071E8F9E2A007A9DA6 /* JRLoopViewConfiguration.swift */; };
+		2B5BBB0D1E8F9E2A007A9DA6 /* JRLoopViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5BBB081E8F9E2A007A9DA6 /* JRLoopViewDataSource.swift */; };
+		2B5BBB0E1E8F9E2A007A9DA6 /* JRLoopViewDataSourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5BBB091E8F9E2A007A9DA6 /* JRLoopViewDataSourceType.swift */; };
+		2B5BBB0F1E8F9E2A007A9DA6 /* JRLoopViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5BBB0A1E8F9E2A007A9DA6 /* JRLoopViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2B4957D81E8E3FB300DC36E3 /* JRLoopView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JRLoopView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B4957DB1E8E3FB300DC36E3 /* JRLoopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JRLoopView.h; sourceTree = "<group>"; };
 		2B4957DC1E8E3FB300DC36E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2B4957E51E8E3FDC00DC36E3 /* JRLoopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRLoopView.swift; sourceTree = "<group>"; };
-		2B4957E61E8E3FDC00DC36E3 /* JRLoopViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRLoopViewDataSource.swift; sourceTree = "<group>"; };
-		2B4957E71E8E3FDC00DC36E3 /* JRLoopViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRLoopViewDelegate.swift; sourceTree = "<group>"; };
-		2B95EF6F1E8E68E6006DCD00 /* JRLoopViewConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRLoopViewConfiguration.swift; sourceTree = "<group>"; };
+		2B5BBB061E8F9E2A007A9DA6 /* JRLoopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRLoopView.swift; sourceTree = "<group>"; };
+		2B5BBB071E8F9E2A007A9DA6 /* JRLoopViewConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRLoopViewConfiguration.swift; sourceTree = "<group>"; };
+		2B5BBB081E8F9E2A007A9DA6 /* JRLoopViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRLoopViewDataSource.swift; sourceTree = "<group>"; };
+		2B5BBB091E8F9E2A007A9DA6 /* JRLoopViewDataSourceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRLoopViewDataSourceType.swift; sourceTree = "<group>"; };
+		2B5BBB0A1E8F9E2A007A9DA6 /* JRLoopViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRLoopViewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,20 +56,21 @@
 		2B4957DA1E8E3FB300DC36E3 /* JRLoopView */ = {
 			isa = PBXGroup;
 			children = (
-				2B4957E31E8E3FB800DC36E3 /* Classes */,
+				2B5BBB051E8F9E2A007A9DA6 /* Classes */,
 				2B4957DB1E8E3FB300DC36E3 /* JRLoopView.h */,
 				2B4957DC1E8E3FB300DC36E3 /* Info.plist */,
 			);
 			path = JRLoopView;
 			sourceTree = "<group>";
 		};
-		2B4957E31E8E3FB800DC36E3 /* Classes */ = {
+		2B5BBB051E8F9E2A007A9DA6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				2B4957E51E8E3FDC00DC36E3 /* JRLoopView.swift */,
-				2B4957E61E8E3FDC00DC36E3 /* JRLoopViewDataSource.swift */,
-				2B4957E71E8E3FDC00DC36E3 /* JRLoopViewDelegate.swift */,
-				2B95EF6F1E8E68E6006DCD00 /* JRLoopViewConfiguration.swift */,
+				2B5BBB061E8F9E2A007A9DA6 /* JRLoopView.swift */,
+				2B5BBB071E8F9E2A007A9DA6 /* JRLoopViewConfiguration.swift */,
+				2B5BBB081E8F9E2A007A9DA6 /* JRLoopViewDataSource.swift */,
+				2B5BBB091E8F9E2A007A9DA6 /* JRLoopViewDataSourceType.swift */,
+				2B5BBB0A1E8F9E2A007A9DA6 /* JRLoopViewDelegate.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -152,10 +155,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B4957E81E8E3FDC00DC36E3 /* JRLoopView.swift in Sources */,
-				2B95EF701E8E68E6006DCD00 /* JRLoopViewConfiguration.swift in Sources */,
-				2B4957EA1E8E3FDC00DC36E3 /* JRLoopViewDelegate.swift in Sources */,
-				2B4957E91E8E3FDC00DC36E3 /* JRLoopViewDataSource.swift in Sources */,
+				2B5BBB0B1E8F9E2A007A9DA6 /* JRLoopView.swift in Sources */,
+				2B5BBB0C1E8F9E2A007A9DA6 /* JRLoopViewConfiguration.swift in Sources */,
+				2B5BBB0D1E8F9E2A007A9DA6 /* JRLoopViewDataSource.swift in Sources */,
+				2B5BBB0F1E8F9E2A007A9DA6 /* JRLoopViewDelegate.swift in Sources */,
+				2B5BBB0E1E8F9E2A007A9DA6 /* JRLoopViewDataSourceType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -50,6 +50,7 @@ open class JRLoopView: UIView {
     }
     
     public func reloadData() {
+        cIndex = 0
         setOrigins()
     }
     
@@ -77,6 +78,7 @@ open class JRLoopView: UIView {
     private func customScrollView() {
         scroll = UIScrollView()
         JRLoopViewConfiguration.JRScrollViewConfiguration(scroll)
+        addTapGesture(scroll)
         scroll.delegate = self
         addSubview(scroll)
         NSLayoutConstraint.init(item: scroll, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 0).isActive = true
@@ -96,6 +98,15 @@ open class JRLoopView: UIView {
         NSLayoutConstraint.init(item: helperView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: bounds.size.width * 3).isActive = true // *
         
         customImageViews()
+    }
+    
+    private func addTapGesture(_ scrollView: UIScrollView) {
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapAction))
+        scrollView.addGestureRecognizer(tap)
+    }
+    
+    @objc private func tapAction(_ sender: UITapGestureRecognizer) {
+        delegate?.loopView(self, didSelectAt: cIndex)
     }
     
     /// 添加三个imageview
@@ -129,9 +140,9 @@ open class JRLoopView: UIView {
     }
     
     private func imageViewsCommonConfig(_ imageView: UIImageView) {
-        let mode = dataSource?.loopView(contentModeFor: self)
         imageView.backgroundColor = UIColor.white
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        let mode = dataSource?.loopView(contentModeFor: self)
         imageView.contentMode = mode ?? .scaleToFill
     }
     
@@ -158,7 +169,7 @@ open class JRLoopView: UIView {
     ///   - index: index description
     private func set(image imageView: UIImageView, by index: Int) {
         func net(url: URL) {
-            imageView.sd_setImage(with: url, placeholderImage: UIImage.init(named: "5.jpeg"))
+            imageView.sd_setImage(with: url, placeholderImage: dataSource.loopView(placeHolderFor: self))
         }
         
         func local(name: String) {

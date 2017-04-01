@@ -10,12 +10,11 @@ import Foundation
 import UIKit
 
 public protocol JRLoopViewDelegate: NSObjectProtocol {
-//    func loopView(contentModeFor loopView: JRLoopView) -> UIViewContentMode
+    func loopView(_ loopView: JRLoopView, didSelectAt index: Int)
 }
 
 public extension JRLoopViewDelegate {
-//    func loopView(contentModeFor loopView: JRLoopView) -> UIViewContentMode {
-//        return .scaleToFill
-//    }
-
+    func loopView(_ loopView: JRLoopView, didSelectAt index: Int) {
+        
+    }
 }
