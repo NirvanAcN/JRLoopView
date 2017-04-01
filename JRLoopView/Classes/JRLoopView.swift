@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import JRTimer
 
 open class JRLoopView: UIView {
     
@@ -24,6 +25,8 @@ open class JRLoopView: UIView {
     private var lImageView: UIImageView!
     private var cImageView: UIImageView!
     private var rImageView: UIImageView!
+    
+    private var timer: Timer!
     
     fileprivate var cIndex = 0
     
@@ -155,6 +158,17 @@ open class JRLoopView: UIView {
             set(image: cImageView, by: 0)
         } else {
             scroll.isScrollEnabled = true
+            if let timer = timer {
+                timer.invalidate()
+            }
+            if let timeInterval = dataSource?.loopView(autoLoopTimeIntervalFor: self) {
+                timer = Timer.JREvery(timeInterval, { [weak self] _ in
+                    let point = CGPoint.init(x: self!.bounds.size.width * 2, y: 0)
+                    self?.layoutIfNeeded()
+                    self?.scroll.setContentOffset(point, animated: true)
+                    self?.perform(#selector(self!.scrollViewDidEndDecelerating), with: self?.scroll, afterDelay: 0.4.JRSeconds)
+                })
+            }
             let indexs = prepareIndexs(by: source, centerIndex: &cIndex)
             set(image: lImageView, by: indexs.0)
             set(image: cImageView, by: indexs.1)
