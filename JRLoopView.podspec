@@ -9,8 +9,8 @@
 Pod::Spec.new do |s|
 
 s.name             = "JRLoopView"
-s.version          = "1.0.0"
-s.summary          = "JRLoopView 轮播图"
+s.version          = "1.0.1"
+s.summary          = "轮播图"
 
 s.description      = <<-DESC
 v1.0.0:
@@ -18,6 +18,10 @@ v1.0.0:
 2.设置占位图
 3.设置图片ContentMode
 4.设置自动滚动时间间隔
+v1.0.1:
+1.设置是否开启自动滚动
+2.设置是否显示PageControl
+3.设置初始状态显示第几张图片 若发生越界此则设置无效
         DESC
 
 s.homepage         = "https://github.com/NirvanAcN/JRLoopView"

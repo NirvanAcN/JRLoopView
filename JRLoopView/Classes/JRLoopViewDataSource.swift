@@ -46,11 +46,29 @@ public protocol JRLoopViewDataSource: NSObjectProtocol {
     /// - Returns: UIViewContentMode 默认为scaleToFill
     func loopView(contentModeFor loopView: JRLoopView) -> UIViewContentMode
     
-    /// 自动滚动时间间隔
+    /// 设置是否开启自动滚动
+    ///
+    /// - Parameter loopView: loopView description
+    /// - Returns: Bool 默认为false
+    func loopView(isAutoLoopFor loopView: JRLoopView) -> Bool
+    
+    /// 设置自动滚动时间间隔
     ///
     /// - Parameter loopView: loopView description
     /// - Returns: TimeInterval 默认为5s
     func loopView(autoLoopTimeIntervalFor loopView: JRLoopView) -> TimeInterval
+    
+    /// 设置是否显示PageControl
+    ///
+    /// - Parameter loopView: loopView description
+    /// - Returns: Bool 默认为false
+    func loopView(isShowPageControlFor loopView: JRLoopView) -> Bool
+    
+    /// 设置初始状态显示第几张图片 若发生越界此则设置无效
+    ///
+    /// - Parameter loopView: loopView description
+    /// - Returns: Int 默认0
+    func loopView(currentPageFor loopView: JRLoopView) -> Int
 }
 
 public extension JRLoopViewDataSource {
@@ -77,5 +95,17 @@ public extension JRLoopViewDataSource {
     
     func loopView(autoLoopTimeIntervalFor loopView: JRLoopView) -> TimeInterval {
         return 5.JRSeconds
+    }
+    
+    func loopView(isAutoLoopFor loopView: JRLoopView) -> Bool {
+        return false
+    }
+    
+    func loopView(isShowPageControlFor loopView: JRLoopView) -> Bool {
+        return false
+    }
+    
+    func loopView(currentPageFor loopView: JRLoopView) -> Int {
+        return 0
     }
 }

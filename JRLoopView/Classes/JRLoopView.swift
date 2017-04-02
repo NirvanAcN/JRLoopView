@@ -28,6 +28,8 @@ open class JRLoopView: UIView {
     
     private var timer: Timer!
     
+    private var pageControl: UIPageControl!
+    
     fileprivate var cIndex = 0
     
     fileprivate var source: [Any] {
@@ -53,7 +55,8 @@ open class JRLoopView: UIView {
     }
     
     public func reloadData() {
-        cIndex = 0
+        setDefaultCurrentPage()
+        pageControlConfig()
         setOrigins()
     }
     
@@ -73,8 +76,15 @@ open class JRLoopView: UIView {
     private func config() {
         backgroundColor = UIColor.white
         
-        guard let _ = dataSource?.loopView(imagesNameFor: self) else { return }
+        setDefaultCurrentPage()
         customScrollView()
+    }
+    
+    /// 设置初始状态显示第几张图片
+    private func setDefaultCurrentPage() {
+        if let indx = dataSource?.loopView(currentPageFor: self), indx < source.count, indx >= 0 {
+            cIndex = indx
+        }
     }
     
     /// 添加ScrollView
@@ -138,8 +148,31 @@ open class JRLoopView: UIView {
         NSLayoutConstraint.init(item: rImageView, attribute: .width, relatedBy: .equal, toItem: cImageView, attribute: .width, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint.init(item: rImageView, attribute: .bottom, relatedBy: .equal, toItem: cImageView, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
         
+        customPageControl()
         setOrigins()
         setCurrent()
+    }
+    
+    /// 添加UIPageControl
+    private func customPageControl() {
+        pageControl = UIPageControl.init()
+        pageControl.isUserInteractionEnabled = false
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        //        pageControl.pageIndicatorTintColor = UIColor.cyan
+        //        pageControl.currentPageIndicatorTintColor = UIColor.cyan
+        addSubview(pageControl)
+        
+        NSLayoutConstraint.init(item: pageControl, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint.init(item: pageControl, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
+        
+        pageControlConfig()
+    }
+    
+    private func pageControlConfig() {
+        guard let flag = dataSource?.loopView(isShowPageControlFor: self) else { return }
+        pageControl.isHidden = !(flag && source.count > 1)
+        pageControl.numberOfPages = source.count
+        pageControl.currentPage = 0
     }
     
     private func imageViewsCommonConfig(_ imageView: UIImageView) {
@@ -151,28 +184,36 @@ open class JRLoopView: UIView {
     
     /// 设置初始图片
     fileprivate func setOrigins() {
-        if source.count == 0 {
+        let sourceCount = source.count
+        if sourceCount == 0 {
             scroll.isScrollEnabled = false
-        } else if source.count == 1 {
+        } else if sourceCount == 1 {
             scroll.isScrollEnabled = false
             set(image: cImageView, by: 0)
         } else {
             scroll.isScrollEnabled = true
-            if let timer = timer {
-                timer.invalidate()
-            }
-            if let timeInterval = dataSource?.loopView(autoLoopTimeIntervalFor: self) {
-                timer = Timer.JREvery(timeInterval, { [weak self] _ in
-                    let point = CGPoint.init(x: self!.bounds.size.width * 2, y: 0)
-                    self?.layoutIfNeeded()
-                    self?.scroll.setContentOffset(point, animated: true)
-                    self?.perform(#selector(self!.scrollViewDidEndDecelerating), with: self?.scroll, afterDelay: 0.4.JRSeconds)
-                })
-            }
+            startTimer()
             let indexs = prepareIndexs(by: source, centerIndex: &cIndex)
             set(image: lImageView, by: indexs.0)
             set(image: cImageView, by: indexs.1)
             set(image: rImageView, by: indexs.2)
+            pageControl.currentPage = cIndex
+        }
+    }
+    
+    /// 启动定时器
+    private func startTimer() {
+        guard let flag = dataSource?.loopView(isAutoLoopFor: self), flag == true else { return }
+        if let timer = timer {
+            timer.invalidate()
+        }
+        if let timeInterval = dataSource?.loopView(autoLoopTimeIntervalFor: self) {
+            timer = Timer.JREvery(timeInterval, { [weak self] _ in
+                let point = CGPoint.init(x: self!.bounds.size.width * 2, y: 0)
+                self?.layoutIfNeeded()
+                self?.scroll.setContentOffset(point, animated: true)
+                self?.perform(#selector(self!.scrollViewDidEndDecelerating), with: self?.scroll, afterDelay: 0.4.JRSeconds)
+            })
         }
     }
     
@@ -220,14 +261,15 @@ open class JRLoopView: UIView {
     ///   - centerIndex: 中位偏移量
     /// - Returns: 左偏移量、中偏移量、右偏移量
     private func prepareIndexs(by source: [Any], centerIndex: inout Int) -> (Int, Int, Int) {
-        if source.count == 0 {
+        let sourceCount = source.count
+        if sourceCount == 0 {
             return (0, 0, 0)
-        } else if centerIndex == -1 || centerIndex == source.count - 1 {
-            centerIndex = source.count - 1
+        } else if centerIndex == -1 || centerIndex == sourceCount - 1 {
+            centerIndex = sourceCount - 1
             return (centerIndex - 1, centerIndex, 0)
-        } else if centerIndex == source.count || centerIndex == 0 {
+        } else if centerIndex == sourceCount || centerIndex == 0 {
             centerIndex = 0
-            return (source.count - 1, centerIndex, centerIndex + 1)
+            return (sourceCount - 1, centerIndex, centerIndex + 1)
         } else {
             return (centerIndex - 1, centerIndex, centerIndex + 1)
         }

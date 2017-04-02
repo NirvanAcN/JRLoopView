@@ -8,22 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		2B4957DD1E8E3FB300DC36E3 /* JRLoopView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B4957DB1E8E3FB300DC36E3 /* JRLoopView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2B5BBB531E8FDAD3007A9DA6 /* JRLoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5BBB4E1E8FDAD3007A9DA6 /* JRLoopView.swift */; };
-		2B5BBB541E8FDAD3007A9DA6 /* JRLoopViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5BBB4F1E8FDAD3007A9DA6 /* JRLoopViewConfiguration.swift */; };
-		2B5BBB551E8FDAD3007A9DA6 /* JRLoopViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5BBB501E8FDAD3007A9DA6 /* JRLoopViewDataSource.swift */; };
-		2B5BBB561E8FDAD3007A9DA6 /* JRLoopViewDataSourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5BBB511E8FDAD3007A9DA6 /* JRLoopViewDataSourceType.swift */; };
-		2B5BBB571E8FDAD3007A9DA6 /* JRLoopViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5BBB521E8FDAD3007A9DA6 /* JRLoopViewDelegate.swift */; };
+		2B495A5F1E90F7C500D97F02 /* JRLoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B495A5A1E90F7C500D97F02 /* JRLoopView.swift */; };
+		2B495A601E90F7C500D97F02 /* JRLoopViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B495A5B1E90F7C500D97F02 /* JRLoopViewConfiguration.swift */; };
+		2B495A611E90F7C500D97F02 /* JRLoopViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B495A5C1E90F7C500D97F02 /* JRLoopViewDataSource.swift */; };
+		2B495A621E90F7C500D97F02 /* JRLoopViewDataSourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B495A5D1E90F7C500D97F02 /* JRLoopViewDataSourceType.swift */; };
+		2B495A631E90F7C500D97F02 /* JRLoopViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B495A5E1E90F7C500D97F02 /* JRLoopViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2B4957D81E8E3FB300DC36E3 /* JRLoopView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JRLoopView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B4957DB1E8E3FB300DC36E3 /* JRLoopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JRLoopView.h; sourceTree = "<group>"; };
 		2B4957DC1E8E3FB300DC36E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2B5BBB4E1E8FDAD3007A9DA6 /* JRLoopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRLoopView.swift; sourceTree = "<group>"; };
-		2B5BBB4F1E8FDAD3007A9DA6 /* JRLoopViewConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRLoopViewConfiguration.swift; sourceTree = "<group>"; };
-		2B5BBB501E8FDAD3007A9DA6 /* JRLoopViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRLoopViewDataSource.swift; sourceTree = "<group>"; };
-		2B5BBB511E8FDAD3007A9DA6 /* JRLoopViewDataSourceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRLoopViewDataSourceType.swift; sourceTree = "<group>"; };
-		2B5BBB521E8FDAD3007A9DA6 /* JRLoopViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRLoopViewDelegate.swift; sourceTree = "<group>"; };
+		2B495A5A1E90F7C500D97F02 /* JRLoopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRLoopView.swift; sourceTree = "<group>"; };
+		2B495A5B1E90F7C500D97F02 /* JRLoopViewConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRLoopViewConfiguration.swift; sourceTree = "<group>"; };
+		2B495A5C1E90F7C500D97F02 /* JRLoopViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRLoopViewDataSource.swift; sourceTree = "<group>"; };
+		2B495A5D1E90F7C500D97F02 /* JRLoopViewDataSourceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRLoopViewDataSourceType.swift; sourceTree = "<group>"; };
+		2B495A5E1E90F7C500D97F02 /* JRLoopViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRLoopViewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,21 +56,21 @@
 		2B4957DA1E8E3FB300DC36E3 /* JRLoopView */ = {
 			isa = PBXGroup;
 			children = (
-				2B5BBB4D1E8FDAD3007A9DA6 /* Classes */,
+				2B495A591E90F7C500D97F02 /* Classes */,
 				2B4957DB1E8E3FB300DC36E3 /* JRLoopView.h */,
 				2B4957DC1E8E3FB300DC36E3 /* Info.plist */,
 			);
 			path = JRLoopView;
 			sourceTree = "<group>";
 		};
-		2B5BBB4D1E8FDAD3007A9DA6 /* Classes */ = {
+		2B495A591E90F7C500D97F02 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				2B5BBB4E1E8FDAD3007A9DA6 /* JRLoopView.swift */,
-				2B5BBB4F1E8FDAD3007A9DA6 /* JRLoopViewConfiguration.swift */,
-				2B5BBB501E8FDAD3007A9DA6 /* JRLoopViewDataSource.swift */,
-				2B5BBB511E8FDAD3007A9DA6 /* JRLoopViewDataSourceType.swift */,
-				2B5BBB521E8FDAD3007A9DA6 /* JRLoopViewDelegate.swift */,
+				2B495A5A1E90F7C500D97F02 /* JRLoopView.swift */,
+				2B495A5B1E90F7C500D97F02 /* JRLoopViewConfiguration.swift */,
+				2B495A5C1E90F7C500D97F02 /* JRLoopViewDataSource.swift */,
+				2B495A5D1E90F7C500D97F02 /* JRLoopViewDataSourceType.swift */,
+				2B495A5E1E90F7C500D97F02 /* JRLoopViewDelegate.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -155,11 +155,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B5BBB531E8FDAD3007A9DA6 /* JRLoopView.swift in Sources */,
-				2B5BBB541E8FDAD3007A9DA6 /* JRLoopViewConfiguration.swift in Sources */,
-				2B5BBB551E8FDAD3007A9DA6 /* JRLoopViewDataSource.swift in Sources */,
-				2B5BBB571E8FDAD3007A9DA6 /* JRLoopViewDelegate.swift in Sources */,
-				2B5BBB561E8FDAD3007A9DA6 /* JRLoopViewDataSourceType.swift in Sources */,
+				2B495A5F1E90F7C500D97F02 /* JRLoopView.swift in Sources */,
+				2B495A601E90F7C500D97F02 /* JRLoopViewConfiguration.swift in Sources */,
+				2B495A611E90F7C500D97F02 /* JRLoopViewDataSource.swift in Sources */,
+				2B495A631E90F7C500D97F02 /* JRLoopViewDelegate.swift in Sources */,
+				2B495A621E90F7C500D97F02 /* JRLoopViewDataSourceType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
