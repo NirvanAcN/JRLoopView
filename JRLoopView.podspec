@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
 s.name             = "JRLoopView"
-s.version          = "1.0.1"
+s.version          = "1.0.2"
 s.summary          = "轮播图"
 
 s.description      = <<-DESC

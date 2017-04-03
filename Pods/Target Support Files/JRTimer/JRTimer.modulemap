@@ -1,0 +1,6 @@
+framework module JRTimer {
+  umbrella header "JRTimer-umbrella.h"
+
+  export *
+  module * { export * }
+}

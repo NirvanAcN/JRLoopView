@@ -1,0 +1,6 @@
+framework module Pods_JRLoopView {
+  umbrella header "Pods-JRLoopView-umbrella.h"
+
+  export *
+  module * { export * }
+}
