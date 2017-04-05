@@ -4,7 +4,7 @@
 1.代码： `loopView(frame: CGRect)`
 2.XIB
 ## - JRLoopViewDataSource
-```
+```swift
 /// 设置加载图片的方式
 ///
 /// - Parameter loopView: loopView description
@@ -66,7 +66,7 @@ func loopView(isShowPageControlFor loopView: JRLoopView) -> Bool
 func loopView(currentPageFor loopView: JRLoopView) -> Int
 ```
 ## - JRLoopViewDelegate
-```
+```swift
 /// 图片点击事件
 ///
 /// - Parameters:
