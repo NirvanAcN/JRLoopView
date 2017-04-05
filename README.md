@@ -1,11 +1,11 @@
 # JRLoopView
 
 ## - Usage
-1.代码： ```loopView(frame: CGRect)```
+1.代码： `loopView(frame: CGRect)`
 2.XIB
 ## - JRLoopViewDataSource
 ```
-`/// 设置加载图片的方式
+/// 设置加载图片的方式
 ///
 /// - Parameter loopView: loopView description
 /// - Returns: 网络图片.url, 网络图片.urlString, 本地图片.name
@@ -65,7 +65,7 @@ func loopView(isShowPageControlFor loopView: JRLoopView) -\> Bool
 /// - Returns: Int 默认0
 func loopView(currentPageFor loopView: JRLoopView) -\> Int
 ```
-`## - JRLoopViewDelegate
+## - JRLoopViewDelegate
 ```
 `/// 图片点击事件
 ///
@@ -74,5 +74,3 @@ func loopView(currentPageFor loopView: JRLoopView) -\> Int
 ///   - index: 被点击图片的index
 func loopView(_ loopView: JRLoopView, didSelectAt index: Int)
 ```
-`
-
