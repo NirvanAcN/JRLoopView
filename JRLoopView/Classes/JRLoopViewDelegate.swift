@@ -10,6 +10,11 @@ import Foundation
 import UIKit
 
 public protocol JRLoopViewDelegate: NSObjectProtocol {
+    /// 图片点击事件
+    ///
+    /// - Parameters:
+    ///   - loopView: loopView description
+    ///   - index: 被点击图片的index
     func loopView(_ loopView: JRLoopView, didSelectAt index: Int)
 }
 
