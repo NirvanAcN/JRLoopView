@@ -15,19 +15,19 @@ func loopView(imagesSourceType loopView: JRLoopView) -> JRLoopViewDataSourceType
 ///
 /// - Parameter loopView: loopView description
 /// - Returns: names
-func loopView(imagesNameFor loopView: JRLoopView) -> [String]()
+func loopView(imagesNameFor loopView: JRLoopView) -> [String]
 
 /// 网络图片urls
 ///
 /// - Parameter loopView: loopView description
 /// - Returns: urls
-func loopView(imagesURLFor loopView: JRLoopView) -> [URL]()
+func loopView(imagesURLFor loopView: JRLoopView) -> [URL]
 
 /// 网络图片urlStrings
 ///
 /// - Parameter loopView: loopView description
 /// - Returns: url strings
-func loopView(imagesURLStringFor loopView: JRLoopView) -> [String]()
+func loopView(imagesURLStringFor loopView: JRLoopView) -> [String]
 
 /// 设置占位图
 ///
