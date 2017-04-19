@@ -148,7 +148,7 @@ open class JRLoopView: UIView {
         
         customPageControl()
         setOrigins()
-        setCurrent()
+//        setCurrent()
     }
     
     /// 添加UIPageControl
@@ -246,12 +246,8 @@ open class JRLoopView: UIView {
     
     /// 设置偏移量
     private func setCurrent() {
-        snp.makeConstraints {
-            _ = $0.width
-        }
-        layoutIfNeeded()
         let point = CGPoint.init(x: bounds.size.width, y: 0)
-        scroll.setContentOffset(point, animated: false)
+        scroll?.setContentOffset(point, animated: false)
     }
     
     /// 获取偏移量
@@ -272,6 +268,13 @@ open class JRLoopView: UIView {
             return (sourceCount - 1, centerIndex, centerIndex + 1)
         } else {
             return (centerIndex - 1, centerIndex, centerIndex + 1)
+        }
+    }
+    
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        if bounds.width > 0 {
+            setCurrent()
         }
     }
 }
