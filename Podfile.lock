@@ -3,15 +3,18 @@ PODS:
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
+  - SnapKit (3.2.0)
 
 DEPENDENCIES:
   - JRTimer
   - SDWebImage
+  - SnapKit
 
 SPEC CHECKSUMS:
   JRTimer: b031b4075edadc0ec215487c6522c44349f07ae7
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
 
-PODFILE CHECKSUM: a4f7c4fc9fa856792ba4824b5814166120301f29
+PODFILE CHECKSUM: 00d9ba76458d1c24f8fcf71ab1e7653226fbc8c2
 
 COCOAPODS: 1.2.0

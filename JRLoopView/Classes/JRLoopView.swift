@@ -9,6 +9,7 @@
 import UIKit
 import SDWebImage
 import JRTimer
+import SnapKit
 
 open class JRLoopView: UIView {
     
@@ -84,6 +85,8 @@ open class JRLoopView: UIView {
     private func setDefaultCurrentPage() {
         if let indx = dataSource?.loopView(currentPageFor: self), indx < source.count, indx >= 0 {
             cIndex = indx
+        } else {
+            cIndex = 0
         }
     }
     
@@ -94,21 +97,16 @@ open class JRLoopView: UIView {
         addTapGesture(scroll)
         scroll.delegate = self
         addSubview(scroll)
-        NSLayoutConstraint.init(item: scroll, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: scroll, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: scroll, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: scroll, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
+        scroll.snp.makeConstraints { $0.edges.equalToSuperview() }
         
         helperView = UIView()
         helperView.backgroundColor = UIColor.white
-        helperView.translatesAutoresizingMaskIntoConstraints = false
         scroll.addSubview(helperView)
-        NSLayoutConstraint.init(item: helperView, attribute: .leading, relatedBy: .equal, toItem: scroll, attribute: .leading, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: helperView, attribute: .top, relatedBy: .equal, toItem: scroll, attribute: .top, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: helperView, attribute: .trailing, relatedBy: .equal, toItem: scroll, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: helperView, attribute: .bottom, relatedBy: .equal, toItem: scroll, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: helperView, attribute: .height, relatedBy: .equal, toItem: scroll, attribute: .height, multiplier: 1, constant: 0).isActive = true // *
-        NSLayoutConstraint.init(item: helperView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: bounds.size.width * 3).isActive = true // *
+        helperView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+            $0.height.equalToSuperview()
+            $0.width.equalTo(self).multipliedBy(3)
+        }
         
         customImageViews()
     }
@@ -127,26 +125,26 @@ open class JRLoopView: UIView {
         lImageView = UIImageView()
         imageViewsCommonConfig(lImageView)
         helperView.addSubview(lImageView)
-        NSLayoutConstraint.init(item: lImageView, attribute: .leading, relatedBy: .equal, toItem: helperView, attribute: .leading, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: lImageView, attribute: .top, relatedBy: .equal, toItem: helperView, attribute: .top, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: lImageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: bounds.size.width).isActive = true
-        NSLayoutConstraint.init(item: lImageView, attribute: .bottom, relatedBy: .equal, toItem: helperView, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
+        lImageView.snp.makeConstraints {
+            $0.leading.top.bottom.equalTo(helperView)
+            $0.width.equalTo(self)
+        }
         
         cImageView = UIImageView()
         imageViewsCommonConfig(cImageView)
         helperView.addSubview(cImageView)
-        NSLayoutConstraint.init(item: cImageView, attribute: .leading, relatedBy: .equal, toItem: lImageView, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: cImageView, attribute: .top, relatedBy: .equal, toItem: lImageView, attribute: .top, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: cImageView, attribute: .width, relatedBy: .equal, toItem: lImageView, attribute: .width, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: cImageView, attribute: .bottom, relatedBy: .equal, toItem: lImageView, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
+        cImageView.snp.makeConstraints {
+            $0.leading.equalTo(lImageView.snp.trailing)
+            $0.top.bottom.width.equalTo(lImageView)
+        }
         
         rImageView = UIImageView()
         imageViewsCommonConfig(rImageView)
         helperView.addSubview(rImageView)
-        NSLayoutConstraint.init(item: rImageView, attribute: .leading, relatedBy: .equal, toItem: cImageView, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: rImageView, attribute: .top, relatedBy: .equal, toItem: cImageView, attribute: .top, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: rImageView, attribute: .width, relatedBy: .equal, toItem: cImageView, attribute: .width, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: rImageView, attribute: .bottom, relatedBy: .equal, toItem: cImageView, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
+        rImageView.snp.makeConstraints {
+            $0.leading.equalTo(cImageView.snp.trailing)
+            $0.top.bottom.width.equalTo(cImageView)
+        }
         
         customPageControl()
         setOrigins()
@@ -157,13 +155,13 @@ open class JRLoopView: UIView {
     private func customPageControl() {
         pageControl = UIPageControl.init()
         pageControl.isUserInteractionEnabled = false
-        pageControl.translatesAutoresizingMaskIntoConstraints = false
         //        pageControl.pageIndicatorTintColor = UIColor.cyan
         //        pageControl.currentPageIndicatorTintColor = UIColor.cyan
         addSubview(pageControl)
-        
-        NSLayoutConstraint.init(item: pageControl, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint.init(item: pageControl, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
+        pageControl.snp.makeConstraints {
+            $0.centerX.equalTo(self)
+            $0.bottom.equalTo(self)
+        }
         
         pageControlConfig()
     }
@@ -177,7 +175,6 @@ open class JRLoopView: UIView {
     
     private func imageViewsCommonConfig(_ imageView: UIImageView) {
         imageView.backgroundColor = UIColor.white
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         let mode = dataSource?.loopView(contentModeFor: self)
         imageView.contentMode = mode ?? .scaleToFill
     }
@@ -249,8 +246,11 @@ open class JRLoopView: UIView {
     
     /// 设置偏移量
     private func setCurrent() {
-        let point = CGPoint.init(x: bounds.size.width, y: 0)
+        snp.makeConstraints {
+            _ = $0.width
+        }
         layoutIfNeeded()
+        let point = CGPoint.init(x: bounds.size.width, y: 0)
         scroll.setContentOffset(point, animated: false)
     }
     

@@ -10,7 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var loopView: JRLoopView!
+//    @IBOutlet weak var loopView: JRLoopView!
+
+    var loopView: JRLoopView!
     
     var data = [
         "http://image.jingruiwangke.com/p/p8e4b9d1f3d5149fa818c89fe83e914f2.png",
@@ -34,9 +36,15 @@ class ViewController: UIViewController {
         //        view.addSubview(foo)
         
 //        data = ["5.jpeg", "4.jpeg"]
-        
+        loopView = JRLoopView.loopView(frame: CGRect.zero)
         loopView.delegate = self
         loopView.dataSource = self
+        view.addSubview(loopView)
+        
+        loopView.snp.makeConstraints {
+            $0.leading.trailing.bottom.equalToSuperview()
+            $0.height.equalTo(200)
+        }
     }
     
     @IBAction func click(_ sender: UIButton) {
