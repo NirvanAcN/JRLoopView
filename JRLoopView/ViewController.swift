@@ -94,6 +94,6 @@ extension ViewController: JRLoopViewDataSource {
 
 extension ViewController: JRLoopViewDelegate {
     func loopView(_ loopView: JRLoopView, didSelectAt index: Int) {
-        print(index)
+
     }
 }

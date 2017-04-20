@@ -14,5 +14,5 @@ import Foundation
 /// - urlString: 网络图片urlstring
 /// - name: 本地图片name
 public enum JRLoopViewDataSourceType {
-    case url, urlString, name
+    case url, urlString, name, image
 }

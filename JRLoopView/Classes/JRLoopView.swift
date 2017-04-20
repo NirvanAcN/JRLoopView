@@ -52,6 +52,12 @@ open class JRLoopView: UIView {
                 fatalError("loopView(imagesNameFor:)")
             }
             return names
+            
+        case .image:
+            guard let images = dataSource?.loopView(imagesFor: self) else {
+                fatalError("loopView(imagesFor:)")
+            }
+            return images
         }
     }
     
@@ -148,7 +154,6 @@ open class JRLoopView: UIView {
         
         customPageControl()
         setOrigins()
-//        setCurrent()
     }
     
     /// 添加UIPageControl
@@ -227,6 +232,11 @@ open class JRLoopView: UIView {
         func local(name: String) {
             imageView.image = UIImage.init(named: name)
         }
+        
+        func loadImage(image: UIImage) {
+            imageView.image = image
+        }
+        
         let type = dataSource!.loopView(imagesSourceType: self)
         switch type {
         case .url:
@@ -241,6 +251,10 @@ open class JRLoopView: UIView {
         case .name:
             guard let name = source[index] as? String else { return }
             local(name: name)
+            
+        case .image:
+            guard let image = source[index] as? UIImage else { return }
+            loadImage(image: image)
         }
     }
     

@@ -22,6 +22,12 @@ public protocol JRLoopViewDataSource: NSObjectProtocol {
     /// - Returns: names
     func loopView(imagesNameFor loopView: JRLoopView) -> [String]
     
+    /// 本地图片images
+    ///
+    /// - Parameter loopView: loopView description
+    /// - Returns: images
+    func loopView(imagesFor loopView: JRLoopView) -> [UIImage]
+    
     /// 网络图片urls
     ///
     /// - Parameter loopView: loopView description
@@ -74,6 +80,10 @@ public protocol JRLoopViewDataSource: NSObjectProtocol {
 public extension JRLoopViewDataSource {
     
     func loopView(imagesNameFor loopView: JRLoopView) -> [String] {
+        return []
+    }
+    
+    func loopView(imagesFor loopView: JRLoopView) -> [UIImage] {
         return []
     }
     
