@@ -1,5 +1,5 @@
 PODS:
-  - JRTimer (0.0.1)
+  - JRTimer (0.0.5)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
@@ -11,7 +11,7 @@ DEPENDENCIES:
   - SnapKit
 
 SPEC CHECKSUMS:
-  JRTimer: b031b4075edadc0ec215487c6522c44349f07ae7
+  JRTimer: 5109bd367457594d289c304536eb021651629b66
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
 

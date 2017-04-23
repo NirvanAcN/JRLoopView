@@ -210,7 +210,7 @@ open class JRLoopView: UIView {
             timer.invalidate()
         }
         if let timeInterval = dataSource?.loopView(autoLoopTimeIntervalFor: self) {
-            timer = Timer.JREvery(timeInterval, { [weak self] _ in
+            timer = Timer.JREvery(timeInterval, DispatchQueue.global(), { [weak self] _ in
                 let point = CGPoint.init(x: self!.bounds.size.width * 2, y: 0)
                 self?.layoutIfNeeded()
                 self?.scroll.setContentOffset(point, animated: true)

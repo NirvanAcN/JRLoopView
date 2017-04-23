@@ -55,6 +55,10 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: JRLoopViewDataSource {
+    func loopView(isAutoLoopFor loopView: JRLoopView) -> Bool {
+        return true
+    }
+    
     func loopView(imagesSourceType loopView: JRLoopView) -> JRLoopViewDataSourceType {
         return type
     }
