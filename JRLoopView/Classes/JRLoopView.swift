@@ -194,7 +194,9 @@ open class JRLoopView: UIView {
             set(image: cImageView, by: 0)
         } else {
             scroll.isScrollEnabled = true
-            startTimer()
+            if timer == nil {
+                startTimer()
+            }
             let indexs = prepareIndexs(by: source, centerIndex: &cIndex)
             set(image: lImageView, by: indexs.0)
             set(image: cImageView, by: indexs.1)
@@ -210,11 +212,8 @@ open class JRLoopView: UIView {
             timer.invalidate()
         }
         if let timeInterval = dataSource?.loopView(autoLoopTimeIntervalFor: self) {
-            timer = Timer.JREvery(timeInterval, DispatchQueue.global(), { [weak self] _ in
-                let point = CGPoint.init(x: self!.bounds.size.width * 2, y: 0)
-                self?.layoutIfNeeded()
-                self?.scroll.setContentOffset(point, animated: true)
-                self?.perform(#selector(self!.scrollViewDidEndDecelerating), with: self?.scroll, afterDelay: 0.4.JRSeconds)
+            timer = Timer.JREvery(timeInterval, .global(), { [weak self] _ in
+                self?.autoScroll()
             })
         }
     }
@@ -289,6 +288,19 @@ open class JRLoopView: UIView {
         super.layoutSubviews()
         if bounds.width > 0 {
             setCurrent()
+        }
+    }
+    
+    private func autoScroll() {
+        let point = CGPoint.init(x: bounds.size.width * 2, y: 0)
+        layoutIfNeeded()
+        scroll.setContentOffset(point, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.4) {
+            let current = Int(ceil(self.scroll.contentOffset.x / self.bounds.size.width))
+            let pointx = CGPoint.init(x: self.bounds.size.width, y: 0)
+            self.scroll.setContentOffset(pointx, animated: false)
+            self.cIndex += current - 1
+            self.setOrigins()
         }
     }
 }
