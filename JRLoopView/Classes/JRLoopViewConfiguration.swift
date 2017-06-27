@@ -13,7 +13,7 @@ class JRLoopViewConfiguration {
 //    private override init() { }
     
     class func JRScrollViewConfiguration(_ scrollView: UIScrollView) {
-        scrollView.backgroundColor = UIColor.white
+        scrollView.backgroundColor = UIColor.clear
         scrollView.bounces = false
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false

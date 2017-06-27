@@ -16,10 +16,18 @@ public protocol JRLoopViewDelegate: NSObjectProtocol {
     ///   - loopView: loopView description
     ///   - index: 被点击图片的index
     func loopView(_ loopView: JRLoopView, didSelectAt index: Int)
+    
+    /// 当前页码
+    ///
+    /// - Parameters:
+    ///   - loopView: loopView description
+    ///   - page: 当前页码
+    ///   - number: 总页数
+    func loopView(_ loopView: JRLoopView, current page: Int, total number: Int)
 }
 
 public extension JRLoopViewDelegate {
-    func loopView(_ loopView: JRLoopView, didSelectAt index: Int) {
-        
-    }
+    func loopView(_ loopView: JRLoopView, didSelectAt index: Int) { }
+    
+    func loopView(_ loopView: JRLoopView, current page: Int, total number: Int) { }
 }

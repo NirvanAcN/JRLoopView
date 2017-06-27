@@ -83,8 +83,6 @@ open class JRLoopView: UIView {
     }
     
     private func config() {
-//        backgroundColor = JRLoopView.color
-        
         setDefaultCurrentPage()
         customScrollView()
     }
@@ -101,6 +99,7 @@ open class JRLoopView: UIView {
     /// 添加ScrollView
     private func customScrollView() {
         scroll = UIScrollView()
+        scroll.backgroundColor = JRLoopView.color
         JRLoopViewConfiguration.JRScrollViewConfiguration(scroll)
         addTapGesture(scroll)
         scroll.delegate = self
@@ -205,6 +204,7 @@ open class JRLoopView: UIView {
             set(image: rImageView, by: indexs.2)
             pageControl.currentPage = cIndex
         }
+        delegate?.loopView(self, current: cIndex, total: source.count)
     }
     
     /// 启动定时器
