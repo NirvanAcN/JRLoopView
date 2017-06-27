@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
 s.name             = "JRLoopView"
-s.version          = "1.0.7"
+s.version          = "1.0.8"
 s.summary          = "轮播图"
 
 s.description      = <<-DESC
@@ -22,6 +22,8 @@ v1.0.1:
 1.设置是否开启自动滚动
 2.设置是否显示PageControl
 3.设置初始状态显示第几张图片 若发生越界此则设置无效
+v1.0.8
+修改背景颜色为透明
         DESC
 
 s.homepage         = "https://github.com/NirvanAcN/JRLoopView"

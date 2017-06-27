@@ -13,6 +13,8 @@ import SnapKit
 
 open class JRLoopView: UIView {
     
+    static let color = UIColor.clear
+    
     public weak var delegate:   JRLoopViewDelegate!
     public weak var dataSource: JRLoopViewDataSource! {
         didSet {
@@ -81,7 +83,7 @@ open class JRLoopView: UIView {
     }
     
     private func config() {
-        backgroundColor = UIColor.white
+//        backgroundColor = JRLoopView.color
         
         setDefaultCurrentPage()
         customScrollView()
@@ -106,7 +108,7 @@ open class JRLoopView: UIView {
         scroll.snp.makeConstraints { $0.edges.equalToSuperview() }
         
         helperView = UIView()
-        helperView.backgroundColor = UIColor.white
+        helperView.backgroundColor = JRLoopView.color
         scroll.addSubview(helperView)
         helperView.snp.makeConstraints {
             $0.edges.equalToSuperview()
@@ -179,7 +181,7 @@ open class JRLoopView: UIView {
     }
     
     private func imageViewsCommonConfig(_ imageView: UIImageView) {
-        imageView.backgroundColor = UIColor.white
+        imageView.backgroundColor = JRLoopView.color
         let mode = dataSource?.loopView(contentModeFor: self)
         imageView.contentMode = mode ?? .scaleToFill
     }
