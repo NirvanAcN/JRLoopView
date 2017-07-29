@@ -64,9 +64,12 @@ open class JRLoopView: UIView {
     }
     
     public func reloadData() {
-        setDefaultCurrentPage()
-        pageControlConfig()
-        setOrigins()
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.setDefaultCurrentPage()
+            strongSelf.pageControlConfig()
+            strongSelf.setOrigins()
+        }
     }
     
     public class func loopView(frame: CGRect) -> JRLoopView {
