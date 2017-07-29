@@ -98,24 +98,31 @@ open class JRLoopView: UIView {
     
     /// 添加ScrollView
     private func customScrollView() {
-        scroll = UIScrollView()
-        scroll.backgroundColor = JRLoopView.color
-        JRLoopViewConfiguration.JRScrollViewConfiguration(scroll)
-        addTapGesture(scroll)
-        scroll.delegate = self
-        addSubview(scroll)
-        scroll.snp.makeConstraints { $0.edges.equalToSuperview() }
-        
-        helperView = UIView()
-        helperView.backgroundColor = JRLoopView.color
-        scroll.addSubview(helperView)
-        helperView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-            $0.height.equalToSuperview()
-            $0.width.equalTo(self).multipliedBy(3)
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+            do {
+                strongSelf.scroll = UIScrollView()
+                strongSelf.scroll.backgroundColor = JRLoopView.color
+                JRLoopViewConfiguration.JRScrollViewConfiguration(strongSelf.scroll)
+                strongSelf.addTapGesture(strongSelf.scroll)
+                strongSelf.scroll.delegate = self
+                strongSelf.addSubview(strongSelf.scroll)
+                strongSelf.scroll.snp.makeConstraints { $0.edges.equalToSuperview() }
+            }
+            
+            do {
+                strongSelf.helperView = UIView()
+                strongSelf.helperView.backgroundColor = JRLoopView.color
+                strongSelf.scroll.addSubview(strongSelf.helperView)
+                strongSelf.helperView.snp.makeConstraints {
+                    $0.edges.equalToSuperview()
+                    $0.height.equalToSuperview()
+                    $0.width.equalTo(strongSelf).multipliedBy(3)
+                }
+                
+                strongSelf.customImageViews()
+            }
         }
-        
-        customImageViews()
     }
     
     private func addTapGesture(_ scrollView: UIScrollView) {
