@@ -36,29 +36,22 @@ open class JRLoopView: UIView {
     fileprivate var cIndex = 0
     
     fileprivate var source: [Any] {
-        switch dataSource!.loopView(imagesSourceType: self) {
+        guard let dataSource = dataSource else { return [] }
+        switch dataSource.loopView(imagesSourceType: self) {
         case .url:
-            guard let urls = dataSource?.loopView(imagesURLFor: self) else {
-                fatalError("loopView(imagesURLFor:)")
-            }
+            let urls = dataSource.loopView(imagesURLFor: self)
             return urls
             
         case .urlString:
-            guard let urlStrings = dataSource?.loopView(imagesURLStringFor: self) else {
-                fatalError("loopView(imagesURLStringFor:)")
-            }
+            let urlStrings = dataSource.loopView(imagesURLStringFor: self)
             return urlStrings
             
         case .name:
-            guard let names = dataSource?.loopView(imagesNameFor: self) else {
-                fatalError("loopView(imagesNameFor:)")
-            }
+            let names = dataSource.loopView(imagesNameFor: self)
             return names
             
         case .image:
-            guard let images = dataSource?.loopView(imagesFor: self) else {
-                fatalError("loopView(imagesFor:)")
-            }
+            let images = dataSource.loopView(imagesFor: self)
             return images
         }
     }
