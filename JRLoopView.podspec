@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
 s.name             = "JRLoopView"
-s.version          = "1.1.3"
+s.version          = "1.1.4"
 s.summary          = "轮播图"
 
 s.description      = <<-DESC
@@ -36,6 +36,7 @@ s.social_media_url = 'http://weibo.com/2743943525'
 s.ios.deployment_target = '8.0'
 s.platform     = :ios, '8.0'
 s.source_files = 'JRLoopView/Classes/**/*'
+s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
 
 s.dependency 'SDWebImage'
 s.dependency 'JRTimer'
