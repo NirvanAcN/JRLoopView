@@ -40,7 +40,7 @@ s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
 
 s.dependency 'SDWebImage'
 s.dependency 'JRTimer'
-s.dependency 'SnapKit'
+s.dependency 'SnapKit', '~> 4.0.0'
 
 s.frameworks = 'UIKit'
 
