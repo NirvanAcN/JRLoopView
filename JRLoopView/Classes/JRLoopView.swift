@@ -127,6 +127,7 @@ open class JRLoopView: UIView {
     }
     
     @objc private func tapAction(_ sender: UITapGestureRecognizer) {
+        guard source.count > 0, source.count > cIndex else { return }
         delegate?.loopView(self, didSelectAt: cIndex)
     }
     

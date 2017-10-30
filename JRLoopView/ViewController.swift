@@ -14,16 +14,16 @@ class ViewController: UIViewController {
 
     var loopView: JRLoopView!
     
-    var data = [
-        "http://image.jingruiwangke.com/p/p8e4b9d1f3d5149fa818c89fe83e914f2.png",
-        "http://image.jingruiwangke.com/p/p9d1ad504e31f4ea382f4827488d04b46.png",
-        "http://image.jingruiwangke.com/p/pfe5405ba62a94ee8bdefe3f6693eb1a5.png",
-        "http://image.jingruiwangke.com/p/p8e4b9d1f3d5149fa818c89fe83e914f2.png",
-        "http://image.jingruiwangke.com/p/p9d1ad504e31f4ea382f4827488d04b46.png",
-        "http://image.jingruiwangke.com/p/pfe5405ba62a94ee8bdefe3f6693eb1a5.png",
-        "http://image.jingruiwangke.com/p/p8e4b9d1f3d5149fa818c89fe83e914f2.png",
-        "http://image.jingruiwangke.com/p/p9d1ad504e31f4ea382f4827488d04b46.png",
-        "http://image.jingruiwangke.com/p/pfe5405ba62a94ee8bdefe3f6693eb1a5.png"
+    var data: [String] = [
+//        "http://image.jingruiwangke.com/p/p8e4b9d1f3d5149fa818c89fe83e914f2.png",
+//        "http://image.jingruiwangke.com/p/p9d1ad504e31f4ea382f4827488d04b46.png",
+//        "http://image.jingruiwangke.com/p/pfe5405ba62a94ee8bdefe3f6693eb1a5.png",
+//        "http://image.jingruiwangke.com/p/p8e4b9d1f3d5149fa818c89fe83e914f2.png",
+//        "http://image.jingruiwangke.com/p/p9d1ad504e31f4ea382f4827488d04b46.png",
+//        "http://image.jingruiwangke.com/p/pfe5405ba62a94ee8bdefe3f6693eb1a5.png",
+//        "http://image.jingruiwangke.com/p/p8e4b9d1f3d5149fa818c89fe83e914f2.png",
+//        "http://image.jingruiwangke.com/p/p9d1ad504e31f4ea382f4827488d04b46.png",
+//        "http://image.jingruiwangke.com/p/pfe5405ba62a94ee8bdefe3f6693eb1a5.png"
     ]
     
     var type: JRLoopViewDataSourceType = .urlString
@@ -98,6 +98,6 @@ extension ViewController: JRLoopViewDataSource {
 
 extension ViewController: JRLoopViewDelegate {
     func loopView(_ loopView: JRLoopView, didSelectAt index: Int) {
-
+        print(index)
     }
 }
